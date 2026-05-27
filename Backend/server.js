@@ -21,6 +21,8 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://localhost:5174",
+      "https://spotify-clone-frontend-steel.vercel.app/",
+      "https://spotify-clone-admin-brown.vercel.app/",
     ],
     credentials: true,
   }),
