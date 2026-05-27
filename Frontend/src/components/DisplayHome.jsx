@@ -1,0 +1,101 @@
+// import React, { useContext } from "react";
+// import Navbar from "./Navbar";
+// import Albumitem from "./Albumitem";
+// import SongItem from "./SongItem";
+// import { PlayerContext } from "../context/PlayerContext";
+
+// const DisplayHome = () => {
+//   const { songsData, albumsData } = useContext(PlayerContext);
+
+//   return (
+//     <>
+//       <Navbar />
+//       <div className="mb-4">
+//         <h1 className="my-5 font-bold text-2xl">Featured Charts</h1>
+//         <div className="flex overflow-auto">
+//           {albumsData.map((item, index) => (
+//             <Albumitem
+//               key={index}
+//               name={item.name}
+//               desc={item.desc}
+//               id={item._id}
+//               image={item.image}
+//             />
+//           ))}
+//         </div>
+//       </div>
+//       <div className="mb-4">
+//         <h1 className="my-5 font-bold text-2xl">Today's biggest hits</h1>
+//         <div className="flex overflow-auto">
+//           {songsData.map((item, index) => (
+//             <SongItem
+//               key={index}
+//               name={item.name}
+//               desc={item.desc}
+//               id={item._id}
+//               image={item.image}
+//             />
+//           ))}
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default DisplayHome;
+
+
+
+import React, { useContext } from "react";
+import Navbar from "./Navbar";
+import Albumitem from "./Albumitem";
+import SongItem from "./SongItem";
+import { PlayerContext } from "../context/PlayerContext";
+
+const DisplayHome = () => {
+  const { songsData, albumsData } = useContext(PlayerContext);
+
+  return (
+    <>
+      <Navbar />
+
+      <div className="mb-4">
+        <h1 className="my-5 font-bold text-2xl">Featured Charts</h1>
+
+        <div className="flex overflow-x-auto pb-4 scrollbar-hide">
+          {albumsData.map((item, index) => (
+            <div key={index} className="flex-shrink-0">
+              <Albumitem
+                name={item.name}
+                desc={item.desc}
+                id={item._id}
+                image={item.image}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <h1 className="my-5 font-bold text-2xl">
+          Today's biggest hits
+        </h1>
+
+        <div className="flex overflow-x-auto pb-4 scrollbar-hide">
+          {songsData.map((item, index) => (
+            <div key={index} className="flex-shrink-0">
+              <SongItem
+                name={item.name}
+                desc={item.desc}
+                id={item._id}
+                image={item.image}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default DisplayHome;
